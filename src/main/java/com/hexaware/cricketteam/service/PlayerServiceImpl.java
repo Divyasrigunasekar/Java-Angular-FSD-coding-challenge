@@ -75,10 +75,10 @@ public class PlayerServiceImpl implements IPlayerService {
         }
         return listDTO;
     }
-	/*
-	 * @Override public List<Player> getPlayersByRole(String role) { List<Player>
-	 * players = playerRepository.findByRole(role); if (players.isEmpty()) { throw
-	 * new PlayerNotFoundException("No players found with role: " + role); } return
-	 * players; }
-	 */
+	
+	  @Override public List<Player> getPlayersByRole(String role) { List<Player>
+	  players = playerRepository.findByRole(role); if (players.isEmpty()) { throw
+	  new PlayerNotFoundException("No players found with role: " + role); } return
+	  players; }
+	 
 }

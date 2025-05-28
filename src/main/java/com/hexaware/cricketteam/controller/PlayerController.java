@@ -4,6 +4,9 @@ import com.hexaware.cricketteam.dto.PlayerListDTO;
 import com.hexaware.cricketteam.entity.Player;
 import com.hexaware.cricketteam.exceptions.PlayerNotFoundException;
 import com.hexaware.cricketteam.service.IPlayerService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +23,7 @@ public class PlayerController {
 
 	// Add a player
 	@PostMapping
-	public ResponseEntity<Player> addPlayer(@RequestBody Player player) {
+	public ResponseEntity<Player> addPlayer(@Valid @RequestBody Player player) {
 		Player savedPlayer = playerService.addPlayer(player);
 		return ResponseEntity.ok(savedPlayer);
 	}
@@ -48,7 +51,7 @@ public class PlayerController {
 
 	// Update player
 	@PutMapping("/{id}")
-	public ResponseEntity<Player> updatePlayer(@PathVariable("id") Long id, @RequestBody Player player) {
+	public ResponseEntity<Player> updatePlayer(@PathVariable("id") Long id,@Valid @RequestBody Player player) {
 		Player updatedPlayer = playerService.updatePlayer(id, player);
 		return ResponseEntity.ok(updatedPlayer);
 	}
@@ -66,10 +69,12 @@ public class PlayerController {
 		return ResponseEntity.status(404).body(ex.getMessage());
 	}
 
-	/*
-	 * @GetMapping("/role/{role}") public ResponseEntity<List<Player>>
-	 * getPlayersByRole(@PathVariable String role) { List<Player> players =
-	 * playerService.getPlayersByRole(role); return new ResponseEntity<>(players,
-	 * HttpStatus.OK); }
-	 */
+	
+	
+	  @GetMapping("/role/{role}") public ResponseEntity<List<Player>>
+	  getPlayersByRole(@PathVariable String role) { List<Player> players =
+	  playerService.getPlayersByRole(role); return new ResponseEntity<>(players,
+	  HttpStatus.OK); }
+	 
+	 
 }

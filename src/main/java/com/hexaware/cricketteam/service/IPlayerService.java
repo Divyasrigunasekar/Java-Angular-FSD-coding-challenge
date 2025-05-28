@@ -18,5 +18,5 @@ public interface IPlayerService {
     
     List<PlayerListDTO> getAllPlayerList();
     
-    //List<Player> getPlayersByRole(String role);
+    List<Player> getPlayersByRole(String role);
 }
