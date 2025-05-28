@@ -17,6 +17,6 @@ public interface IPlayerService {
     void deletePlayer(Long playerId);
     
     List<PlayerListDTO> getAllPlayerList();
-    
+//	Getting Player By Role
     List<Player> getPlayersByRole(String role);
 }

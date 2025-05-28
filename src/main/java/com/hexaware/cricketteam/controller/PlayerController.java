@@ -69,7 +69,7 @@ public class PlayerController {
 		return ResponseEntity.status(404).body(ex.getMessage());
 	}
 
-	
+	//	Getting Player By Role
 	
 	  @GetMapping("/role/{role}") public ResponseEntity<List<Player>>
 	  getPlayersByRole(@PathVariable String role) { List<Player> players =
