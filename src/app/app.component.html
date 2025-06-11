@@ -1,0 +1,6 @@
+<app-navbar (toggleListEvent)="toggleListVisibility()"></app-navbar>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+  <app-player-list *ngIf="showList"></app-player-list>
+</div>

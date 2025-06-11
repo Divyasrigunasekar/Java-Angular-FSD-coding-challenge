@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h2>Player List</h2>
+  <div class="mb-3">
+  <input type="number" [(ngModel)]="searchId" placeholder="Search by Player ID" class="form-control" />
+  <button class="btn btn-primary mt-2" (click)="searchById()">Search</button>
+</div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Jersey</th>
+        <th>Role</th>
+        <th>Matches</th>
+        <th>Team</th>
+        <th>State</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.playerId }}</td>
+        <td>{{ player.playerName }}</td>
+        <td>{{ player.jerseyNumber }}</td>
+        <td>{{ player.role }}</td>
+        <td>{{ player.totalMatches }}</td>
+        <td>{{ player.teamName }}</td>
+        <td>{{ player.state }}</td>
+        <td>{{ player.description }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="updatePlayer(player.playerId)">Edit</button> 
+          <button class="btn btn-danger btn-sm ms-2" (click)="deletePlayer(player.playerId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success mb-3" (click)="addPlayer()">Add Player</button>
+</div>

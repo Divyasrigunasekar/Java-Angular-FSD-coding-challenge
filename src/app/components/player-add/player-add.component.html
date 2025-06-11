@@ -1,0 +1,88 @@
+<div class="container mt-4">
+  <h2>Add New Player</h2>
+  <form #playerForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+<!-- ID -->
+    <div class="mb-3">
+  <label for="playerId" class="form-label">Player ID</label>
+  <input type="number" id="playerId" class="form-control"
+    [(ngModel)]="player.playerId" name="playerId" required />
+  <div *ngIf="playerForm.submitted && !player.playerId" class="text-danger">
+    Player ID is required.
+  </div>
+</div>
+
+    <!-- Name -->
+    <div class="mb-3">
+      <label for="playerName" class="form-label">Player Name</label>
+      <input type="text" id="playerName" class="form-control"
+        [(ngModel)]="player.playerName" name="playerName" required>
+      <div *ngIf="playerForm.submitted && !player.playerName" class="text-danger">
+        Player name is required.
+      </div>
+    </div>
+
+    <!-- Jersey Number -->
+    <div class="mb-3">
+      <label for="jerseyNumber" class="form-label">Jersey Number</label>
+      <input type="number" id="jerseyNumber" class="form-control"
+        [(ngModel)]="player.jerseyNumber" name="jerseyNumber" required min="0">
+      <div *ngIf="playerForm.submitted && player.jerseyNumber == null" class="text-danger">
+        Jersey number is required.
+      </div>
+    </div>
+
+    <!-- Role -->
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <select id="role" class="form-select" [(ngModel)]="player.role" name="role" required>
+        <option value="" disabled selected>Select role</option>
+        <option value="Batter">Batter</option>
+        <option value="Bowler">Bowler</option>
+        <option value="All Rounder">All Rounder</option>
+        <option value="Keeper">Keeper</option>
+      </select>
+      <div *ngIf="playerForm.submitted && !player.role" class="text-danger">
+        Role is required.
+      </div>
+    </div>
+
+    <!-- Total Matches -->
+    <div class="mb-3">
+      <label for="totalMatches" class="form-label">Total Matches</label>
+      <input type="number" id="totalMatches" class="form-control"
+        [(ngModel)]="player.totalMatches" name="totalMatches" required min="0">
+      <div *ngIf="playerForm.submitted && player.totalMatches == null" class="text-danger">
+        Total matches is required.
+      </div>
+    </div>
+
+    <!-- Team Name -->
+    <div class="mb-3">
+      <label for="teamName" class="form-label">Team Name</label>
+      <input type="text" id="teamName" class="form-control"
+        [(ngModel)]="player.teamName" name="teamName" required>
+      <div *ngIf="playerForm.submitted && !player.teamName" class="text-danger">
+        Team name is required.
+      </div>
+    </div>
+
+    <!-- State -->
+    <div class="mb-3">
+      <label for="state" class="form-label">State</label>
+      <input type="text" id="state" class="form-control"
+        [(ngModel)]="player.state" name="state" required>
+      <div *ngIf="playerForm.submitted && !player.state" class="text-danger">
+        State is required.
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" class="form-control"
+        [(ngModel)]="player.description" name="description" rows="3" maxlength="300"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Player</button>
+  </form>
+</div>
